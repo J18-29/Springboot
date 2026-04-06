@@ -1,0 +1,28 @@
+nav{
+    background:#333;
+    padding:10px;
+}
+nav a{
+    color:white;
+    margin-right:15px;
+    text-decoration:none;
+}
+.dropdown{
+    display:inline-block;
+    position:relative;
+}
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:120px;
+}
+.dropdown-content a{
+    display:block;
+    color:black;
+    padding:8px;
+}
+.dropdown:hover 
+.dropdown-content{
+    display:block;
+}

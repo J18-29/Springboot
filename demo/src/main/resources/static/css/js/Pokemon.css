@@ -1,0 +1,43 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.tipo {
+    display: inline-block;
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 50px; 
+    padding: 4px 12px;
+    margin: 4px;        
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    color: #495057;
+}
+
+
+.error-container {
+    margin-top: 50px;
+    padding: 30px;
+    display: inline-block;
+    background: white;
+    border-radius: 15px;
+}
+
+.error404 {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background-color: #198754;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}

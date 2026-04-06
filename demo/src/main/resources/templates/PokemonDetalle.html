@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle - Pokédex Spring Boot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/pokemon.css}">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/pokemon}">POKEAPI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" th:href="@{/pokemon}">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Generaciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" th:href="@{/generacion/1}">Primera Generación</a></li>
+                        <li><a class="dropdown-item" th:href="@{/generacion/2}">Segunda Generación</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" th:href="@{/generacion/3}">Tercera Generación</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container text-center">
+    <div class="card mx-auto shadow-sm" style="max-width: 500px;">
+        <div class="card-header bg-white">
+            <h2 class="mb-0">
+                #<span th:text="${pokemon.numero}"></span> - <span th:text="${pokemon.nombre}"></span>
+            </h2>
+        </div>
+        
+        <div class="card-body">
+            <img th:src="${pokemon.imagen}" class="img-fluid mb-3" style="max-height: 250px;" alt="pokemon">
+            
+            <div class="mb-3">
+                <span th:each="tipo : ${pokemon.tipos}" class="tipo" th:text="${tipo}"></span>
+            </div>
+
+            <hr>
+            
+            <div class="row text-center mt-3">
+                <div class="col-4"><strong>HP</strong><br><span th:text="${pokemon.hp}"></span></div>
+                <div class="col-4"><strong>Ataque</strong><br><span th:text="${pokemon.ataque}"></span></div>
+                <div class="col-4"><strong>Defensa</strong><br><span th:text="${pokemon.defensa}"></span></div>
+            </div>
+        </div>
+
+        <div class="card-footer bg-white d-flex justify-content-between p-3">
+            <a th:href="@{/pokemon/{id}(id=${pokemon.numero - 1 <= 0 ? 1010 : pokemon.numero - 1})}" class="btn btn-outline-dark">
+                ⬅️ Anterior
+            </a>
+            
+            <a th:href="@{/pokemon}" class="btn btn-success">Volver</a>
+            
+            <a th:href="@{/pokemon/{id}(id=${pokemon.numero + 1 > 1010 ? 1 : pokemon.numero + 1})}" class="btn btn-outline-dark">
+                Siguiente ➡️
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
